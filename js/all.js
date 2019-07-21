@@ -1,7 +1,7 @@
 const app = new Vue({
     el: '#app',
     data:{
-        menu: 'ringtone',
+        menu: 'add',
         addTodoBar:{
             newTodo: '',
             newTomato: '',
@@ -13,7 +13,7 @@ const app = new Vue({
             tomatoProgress: 0,
             workTime: 1500,
             breakTime: 300,
-            seleted: true,
+            seleted: false,
         },
         {
             title: 'My Second Task',
