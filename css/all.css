@@ -1,0 +1,999 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#app {
+  font-family: 'Lato', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+#app .nav {
+  background-color: #333333;
+  position: relative;
+  width: 80px;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+#app .nav .bar {
+  height: 100vh;
+  width: 80px;
+}
+
+#app .nav .bar ul li {
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+}
+
+#app .nav .bar ul li:nth-child(5) {
+  height: 50px;
+  width: 90px;
+  border-radius: 25px 5px 5px 25px;
+  background-color: #FCFCFC;
+  position: absolute;
+  left: -30px;
+  bottom: 2em;
+}
+
+#app .nav .bar ul a {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+}
+
+#app .nav .bar ul #add {
+  background: url(../image/add_white.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #add.active {
+  background: url(../image/add_red.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #list {
+  background: url(../image/list_white.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #list.active {
+  background: url(../image/list_red.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #analytics {
+  background: url(../image/analysis_white.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #analytics.active {
+  background: url(../image/analysis_red.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #ringtone {
+  background: url(../image/ringtone_white.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #ringtone.active {
+  background: url(../image/ringtone_red.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .nav .bar ul #hamburger {
+  width: 25px;
+  height: 50px;
+  background: url(../image/tomato_small_color.svg) no-repeat center center;
+  background-size: contain;
+  margin-left: 1em;
+  position: relative;
+}
+
+#app .nav .bar ul #hamburger:after {
+  content: "";
+  position: absolute;
+  background: url(../image/arrow.svg) center center no-repeat;
+  background-size: contain;
+  height: 20px;
+  width: 20px;
+  top: 16px;
+  left: 35px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#app .nav.active {
+  width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#app .nav.active .bar {
+  border-right: 1px solid #9b99994b;
+}
+
+#app .nav.active #hamburger#hamburger:after {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+#app .nav .content {
+  width: 100%;
+  padding: 0 34px;
+}
+
+#app .nav .content h1 {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #FCFCFC;
+  text-align: left;
+  line-height: 60px;
+  border-bottom: 1px solid #9b99994b;
+  word-spacing: 5px;
+  letter-spacing: 2px;
+}
+
+#app .nav .content .editZone label {
+  display: block;
+  font-size: 14px;
+  color: #ACACAC;
+  line-height: 40px;
+  margin-top: 20px;
+}
+
+#app .nav .content .editZone input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 1em;
+  font-size: 16px;
+}
+
+#app .nav .content .editZone ul li.tomato {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+#app .nav .content .editZone ul li.tomato:nth-child(10) {
+  margin-right: 0;
+}
+
+#app .nav .content .editZone ul li.tomato.red a {
+  background: url(../image/tomato_small_color.svg) center center no-repeat;
+  background-size: cover;
+}
+
+#app .nav .content .editZone ul li.tomato a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(../image/tomato_small_gray.svg) center center no-repeat;
+  background-size: cover;
+}
+
+#app .nav .content .editZone button {
+  display: block;
+  height: 50px;
+  width: 85%;
+  margin-top: 3em;
+  margin-left: 34px;
+  border-radius: 30px;
+  border: none;
+  background-color: #EA5548;
+  color: #FCFCFC;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+}
+
+#app .nav .content .listBar .listnav, #app .nav .content .listBar .ringtoneNav, #app .nav .content .ringtone .listnav, #app .nav .content .ringtone .ringtoneNav {
+  margin-top: 2em;
+}
+
+#app .nav .content .listBar .listnav li, #app .nav .content .listBar .ringtoneNav li, #app .nav .content .ringtone .listnav li, #app .nav .content .ringtone .ringtoneNav li {
+  display: inline-block;
+  width: 80px;
+  height: 25px;
+  background-color: #606060;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+#app .nav .content .listBar .listnav li a, #app .nav .content .listBar .ringtoneNav li a, #app .nav .content .ringtone .listnav li a, #app .nav .content .ringtone .ringtoneNav li a {
+  text-decoration: none;
+  color: #ACACAC;
+  font-size: 12px;
+  line-height: 25px;
+  font-weight: 900;
+}
+
+#app .nav .content .listBar .listnav li.active, #app .nav .content .listBar .ringtoneNav li.active, #app .nav .content .ringtone .listnav li.active, #app .nav .content .ringtone .ringtoneNav li.active {
+  background-color: #EA5548;
+}
+
+#app .nav .content .listBar .listnav li.active a, #app .nav .content .listBar .ringtoneNav li.active a, #app .nav .content .ringtone .listnav li.active a, #app .nav .content .ringtone .ringtoneNav li.active a {
+  color: #FCFCFC;
+}
+
+#app .nav .content .listBar .todolist, #app .nav .content .listBar .ringtoneWrap, #app .nav .content .ringtone .todolist, #app .nav .content .ringtone .ringtoneWrap {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  background-color: #414141;
+  border-radius: 2px;
+}
+
+#app .nav .content .listBar .todolist > li, #app .nav .content .listBar .ringtoneWrap > li, #app .nav .content .ringtone .todolist > li, #app .nav .content .ringtone .ringtoneWrap > li {
+  height: 50px;
+  border-bottom: 1px solid #333333;
+  padding: 0 30px;
+  position: relative;
+}
+
+#app .nav .content .listBar .todolist > li > a:nth-child(1), #app .nav .content .listBar .ringtoneWrap > li > a:nth-child(1), #app .nav .content .ringtone .todolist > li > a:nth-child(1), #app .nav .content .ringtone .ringtoneWrap > li > a:nth-child(1) {
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  position: absolute;
+  left: 8px;
+  top: 16px;
+}
+
+#app .nav .content .listBar .todolist > li > a:nth-child(1).now, #app .nav .content .listBar .ringtoneWrap > li > a:nth-child(1).now, #app .nav .content .ringtone .todolist > li > a:nth-child(1).now, #app .nav .content .ringtone .ringtoneWrap > li > a:nth-child(1).now {
+  background: url(../image/tomato_small_color.svg) center center no-repeat;
+  background-size: cover;
+}
+
+#app .nav .content .listBar .todolist > li > a:nth-child(1).done, #app .nav .content .listBar .ringtoneWrap > li > a:nth-child(1).done, #app .nav .content .ringtone .todolist > li > a:nth-child(1).done, #app .nav .content .ringtone .ringtoneWrap > li > a:nth-child(1).done {
+  background: url(../image/complete.svg) center center no-repeat;
+  background-size: cover;
+  -webkit-filter: brightness(2000%);
+          filter: brightness(2000%);
+}
+
+#app .nav .content .listBar .todolist > li h3, #app .nav .content .listBar .ringtoneWrap > li h3, #app .nav .content .ringtone .todolist > li h3, #app .nav .content .ringtone .ringtoneWrap > li h3 {
+  display: inline-block;
+  color: #FCFCFC;
+  font-size: 16px;
+  font-weight: 0;
+  line-height: 20px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+#app .nav .content .listBar .todolist > li ul.progress li, #app .nav .content .listBar .ringtoneWrap > li ul.progress li, #app .nav .content .ringtone .todolist > li ul.progress li, #app .nav .content .ringtone .ringtoneWrap > li ul.progress li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #EA5548;
+  border-radius: 50%;
+  margin-right: 4px;
+  position: relative;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+#app .nav .content .listBar .todolist > li ul.progress li.completed, #app .nav .content .listBar .ringtoneWrap > li ul.progress li.completed, #app .nav .content .ringtone .todolist > li ul.progress li.completed, #app .nav .content .ringtone .ringtoneWrap > li ul.progress li.completed {
+  background-color: #EA5548;
+}
+
+#app .nav .content .listBar .todolist > li ul.progress li span, #app .nav .content .listBar .ringtoneWrap > li ul.progress li span, #app .nav .content .ringtone .todolist > li ul.progress li span, #app .nav .content .ringtone .ringtoneWrap > li ul.progress li span {
+  display: inline-block;
+  position: absolute;
+  background-color: #EA5548;
+  top: -1px;
+  right: -1px;
+}
+
+#app .nav .content .listBar .todolist > li .edit, #app .nav .content .listBar .ringtoneWrap > li .edit, #app .nav .content .ringtone .todolist > li .edit, #app .nav .content .ringtone .ringtoneWrap > li .edit {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  font-size: 32px;
+  color: #ACACAC;
+  text-decoration: none;
+  right: -3px;
+  top: 0px;
+}
+
+#app .nav .content .listBar .todolist > li .edit.editIcon, #app .nav .content .listBar .ringtoneWrap > li .edit.editIcon, #app .nav .content .ringtone .todolist > li .edit.editIcon, #app .nav .content .ringtone .ringtoneWrap > li .edit.editIcon {
+  right: 5px;
+  top: 13px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#app .nav .content .listBar .todolist > li.editing, #app .nav .content .listBar .ringtoneWrap > li.editing, #app .nav .content .ringtone .todolist > li.editing, #app .nav .content .ringtone .ringtoneWrap > li.editing {
+  padding: 0;
+  padding: 0 30px;
+  height: auto;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone label, #app .nav .content .listBar .ringtoneWrap > li.editing .editZone label, #app .nav .content .ringtone .todolist > li.editing .editZone label, #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone label {
+  margin-top: 5px;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone label:nth-child(1), #app .nav .content .listBar .ringtoneWrap > li.editing .editZone label:nth-child(1), #app .nav .content .ringtone .todolist > li.editing .editZone label:nth-child(1), #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone label:nth-child(1) {
+  border-top: 1px solid #333333;
+  line-height: 35px;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone input, #app .nav .content .listBar .ringtoneWrap > li.editing .editZone input, #app .nav .content .ringtone .todolist > li.editing .editZone input, #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone input {
+  height: 40px;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone ul li.tomato, #app .nav .content .listBar .ringtoneWrap > li.editing .editZone ul li.tomato, #app .nav .content .ringtone .todolist > li.editing .editZone ul li.tomato, #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone ul li.tomato {
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone ul li.tomato:nth-child(10), #app .nav .content .listBar .ringtoneWrap > li.editing .editZone ul li.tomato:nth-child(10), #app .nav .content .ringtone .todolist > li.editing .editZone ul li.tomato:nth-child(10), #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone ul li.tomato:nth-child(10) {
+  margin-right: 0;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone button, #app .nav .content .listBar .ringtoneWrap > li.editing .editZone button, #app .nav .content .ringtone .todolist > li.editing .editZone button, #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone button {
+  display: inline-block;
+  margin-top: 1em;
+  width: 60%;
+  height: 40px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
+#app .nav .content .listBar .todolist > li.editing .editZone button[type="reset"], #app .nav .content .listBar .ringtoneWrap > li.editing .editZone button[type="reset"], #app .nav .content .ringtone .todolist > li.editing .editZone button[type="reset"], #app .nav .content .ringtone .ringtoneWrap > li.editing .editZone button[type="reset"] {
+  background-color: #606060;
+  width: 34%;
+  margin-right: 15px;
+}
+
+#app .nav .content .analytics h2 {
+  font-size: 15px;
+  color: #ACACAC;
+  line-height: 35px;
+  margin-top: 12px;
+  word-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+#app .nav .content .analytics h2 p {
+  display: inline-block;
+  font-size: 10px;
+  color: #EAEAEA;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+#app .nav .content .analytics ul.week {
+  width: 100%;
+  height: 80px;
+  background-color: #404040;
+  border-radius: 2px;
+}
+
+#app .nav .content .analytics ul.week li {
+  font-size: 40px;
+  color: #EA5548;
+  display: inline-block;
+  text-align: center;
+  width: 49%;
+  height: 50px;
+  margin-top: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#app .nav .content .analytics ul.week li:nth-child(1) {
+  border-right: 1px solid #606060;
+}
+
+#app .nav .content .analytics ul.week li p {
+  font-size: 10px;
+  color: #EAEAEA;
+  margin-top: 5px;
+}
+
+#app .nav .content .analytics div.chart {
+  height: 250px;
+  width: 100%;
+  background-color: #404040;
+  position: relative;
+  padding: 0 7%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#app .nav .content .analytics div.chart ul.chartImage {
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#app .nav .content .analytics div.chart ul.chartImage li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  margin-right: 24px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+#app .nav .content .analytics div.chart ul.chartImage li:first-child {
+  margin-left: 4px;
+}
+
+#app .nav .content .analytics div.chart ul.chartImage li:last-child {
+  margin-right: 0;
+}
+
+#app .nav .content .analytics div.chart ul.chartImage li span {
+  display: inline-block;
+  width: 25px;
+  height: 9px;
+  border-radius: 9px;
+  background-color: #EA5548;
+  margin-top: 1px;
+}
+
+#app .nav .content .analytics div.chart ul.chartImage li p {
+  font-size: 14px;
+  color: #EA5548;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+#app .nav .content .analytics div.chart ul.date {
+  position: absolute;
+  bottom: -35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+#app .nav .content .analytics div.chart ul.date li {
+  display: inline-block;
+  margin-right: 17px;
+}
+
+#app .nav .content .analytics div.chart ul.date li:last-child {
+  margin-right: 0;
+}
+
+#app .nav .content .analytics div.chart ul.date li h3 {
+  font-size: 10px;
+  color: #EAEAEA;
+}
+
+#app .nav .content .analytics div.chart ul.date li h3 p {
+  font-size: 8px;
+  color: #ACACAC;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  text-align: center;
+}
+
+#app .nav .content .analytics div.anabtn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#app .nav .content .analytics div.anabtn button {
+  margin-top: 50px;
+  width: 90px;
+  height: 40px;
+  border-radius: 30px;
+  border: 2px solid #EA5548;
+  background-color: transparent;
+  color: #EA5548;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  outline: none;
+}
+
+#app .nav .content .analytics div.anabtn button.next {
+  margin-left: auto;
+}
+
+#app .nav .content .analytics div.anabtn button.disabled {
+  border-color: #606060;
+  color: #606060;
+}
+
+#app .nav .content .analytics div.anabtn button:hover, #app .nav .content .analytics div.anabtn button:active {
+  -webkit-transform: translate(-1px, -1px);
+          transform: translate(-1px, -1px);
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li {
+  padding: 0 30px 0 38px;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtSelete {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #EA5548;
+  top: 19px;
+  left: 14px;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtSelete.rtNow {
+  background-color: #EA5548;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li h3 {
+  line-height: 30px;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(../image/play_gray.svg) center center no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ACACAC;
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay:hover {
+  background: url(../image/play_white.svg) center center no-repeat;
+  border-color: #FCFCFC;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay.rtPlaying {
+  background: url(../image/stop_white.svg) center center no-repeat;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .right, #app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .left {
+  width: 10px;
+  height: 20px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 84%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .right .rightCircle, #app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .right .leftCircle, #app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .left .rightCircle, #app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .left .leftCircle {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-right: 2px solid #FCFCFC;
+  border-top: 2px solid #FCFCFC;
+}
+
+#app .nav .content .ringtone .ringtoneWrap.ringtoneWrap > li a.rtPlay .left {
+  -webkit-transform: rotate(180deg) translate(150%, 50%);
+          transform: rotate(180deg) translate(150%, 50%);
+}
+
+#app .main {
+  width: 100%;
+  height: 100vh;
+  background-color: #EAEAEA;
+}
+
+#app .main .initial .podomoro {
+  max-width: 300px;
+  height: auto;
+  background: url(../image/tomato_small_color.svg) center center no-repeat;
+  background-size: cover;
+  margin: 50px auto 30px;
+}
+
+#app .main .initial .podomoro h1 {
+  color: #FCFCFC;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 300px;
+  letter-spacing: 5px;
+}
+
+#app .main .initial h3 {
+  width: 300px;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto;
+  color: #585656;
+}
+
+#app .main .initial p {
+  color: #777676;
+  margin-top: 110px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#app .main .running {
+  text-align: center;
+}
+
+#app .main .running h1 {
+  font-size: 24px;
+  margin-top: 40px;
+  color: #333333;
+}
+
+#app .main .running ul:first-of-type {
+  margin-top: 10px;
+}
+
+#app .main .running ul:first-of-type li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #EA5548;
+  margin-right: 8px;
+  position: relative;
+}
+
+#app .main .running ul:first-of-type li.completed {
+  background-color: #EA5548;
+}
+
+#app .main .running ul:first-of-type li.rest {
+  border: none;
+  width: 70px;
+  height: 16px;
+  background-color: #B5E254;
+  border-radius: 8px;
+  font-size: 6px;
+  color: #FCFCFC;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#app .main .running ul:first-of-type li span {
+  display: inline-block;
+  position: absolute;
+  background-color: #EA5548;
+  top: 0;
+}
+
+#app .main .running .clock {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 300px;
+  width: 300px;
+  background-color: #FCFCFC;
+  border-radius: 50%;
+  margin: 30px auto 25px;
+  position: relative;
+  font-size: 40px;
+  color: #333333;
+  line-height: 200px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  border: 50px solid #ACACAC;
+}
+
+#app .main .running .clock.rest {
+  border: 50px solid #B5E254;
+}
+
+#app .main .running .clock .right, #app .main .running .clock .left {
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 87.5%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#app .main .running .clock .right .rightCircle, #app .main .running .clock .right .leftCircle, #app .main .running .clock .left .rightCircle, #app .main .running .clock .left .leftCircle {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  border: 50px solid transparent;
+  border-right: 50px solid #EA5548;
+  border-top: 50px solid #EA5548;
+}
+
+#app .main .running .clock .right .rightCircle.work, #app .main .running .clock .right .leftCircle.work, #app .main .running .clock .left .rightCircle.work, #app .main .running .clock .left .leftCircle.work {
+  border-right: 50px solid #EA5548;
+  border-top: 50px solid #EA5548;
+}
+
+#app .main .running .clock .right .rightCircle.rest, #app .main .running .clock .right .leftCircle.rest, #app .main .running .clock .left .rightCircle.rest, #app .main .running .clock .left .leftCircle.rest {
+  border-right: 50px solid #ACACAC;
+  border-top: 50px solid #ACACAC;
+}
+
+#app .main .running .clock .left {
+  -webkit-transform: rotate(180deg) translate(150%, 50%);
+          transform: rotate(180deg) translate(150%, 50%);
+}
+
+#app .main .running .playBar li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FCFCFC;
+  display: inline-block;
+  margin: 0 45px 40px;
+}
+
+#app .main .running .playBar li button {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+#app .main .running .playBar li button:hover::after {
+  content: 'play';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background-color: rgba(252, 252, 252, 0.651);
+  font-size: 10px;
+  color: #EA5548;
+  line-height: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding-left: 4px;
+}
+
+#app .main .running .playBar li button.restPlayMode:active::before {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  position: absolute;
+  left: -50px;
+  top: 0;
+  border-right: 50px solid transparent;
+  -webkit-filter: drop-shadow(50px 0 #B5E254);
+          filter: drop-shadow(50px 0 #B5E254);
+}
+
+#app .main .running .playBar li #play {
+  background: url(../image/start_gray.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .main .running .playBar li #play.workPlayMode {
+  background: url(../image/start_red.svg) no-repeat center center;
+}
+
+#app .main .running .playBar li #play.restPlayMode::before {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background: url(../image/start_red.svg) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  left: -50px;
+  top: 0;
+  border-right: 50px solid transparent;
+  -webkit-filter: drop-shadow(50px 0 #B5E254);
+          filter: drop-shadow(50px 0 #B5E254);
+}
+
+#app .main .running .playBar li #play:hover::after {
+  content: 'play';
+}
+
+#app .main .running .playBar li #pause {
+  background: url(../image/pause_gray.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .main .running .playBar li #pause:active {
+  background: url(../image/pause_red.svg) no-repeat center center;
+}
+
+#app .main .running .playBar li #pause.restPlayMode:active::before {
+  background: url(../image/pause_red.svg) no-repeat center center;
+}
+
+#app .main .running .playBar li #pause:hover::after {
+  content: 'pause';
+}
+
+#app .main .running .playBar li #stop {
+  background: url(../image/reset_gray.svg) no-repeat center center;
+  background-size: cover;
+}
+
+#app .main .running .playBar li #stop:active {
+  background: url(../image/reset_red.svg) no-repeat center center;
+}
+
+#app .main .running .playBar li #stop.restPlayMode:active::before {
+  background: url(../image/reset_red.svg) no-repeat center center;
+}
+
+#app .main .running .playBar li #stop:hover::after {
+  content: 'reset';
+}
+
+#app .main .running h3 {
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  color: #333333;
+  font-weight: 900;
+}
+
+#app .main .running h3::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: url(../image/complete.svg) no-repeat center center;
+  background-size: cover;
+  left: -20px;
+  top: -1px;
+}
+
+#app .main .running p {
+  color: #777676;
+  margin-top: 15px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#app .alarmStop {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 10;
+  background-color: #3333336e;
+}
+
+#app .alarmStop .alert {
+  width: 600px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.89);
+  border-radius: 5px;
+  margin: 12em 0 0 15em;
+  padding: 4em 4em 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#app .alarmStop .alert h2 {
+  font-size: 40px;
+  color: #333333;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#app .alarmStop .alert p {
+  color: #333333;
+  text-align: center;
+  margin-top: 1.5em;
+  font-size: 20px;
+  word-spacing: 3px;
+}
+
+#app .alarmStop .alert button {
+  display: block;
+  width: 300px;
+  height: 50px;
+  background-color: rgba(234, 86, 72, 0.795);
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  margin: 2.5em auto 0;
+  font-size: 20px;
+  color: #FCFCFC;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+/*# sourceMappingURL=all.css.map */
