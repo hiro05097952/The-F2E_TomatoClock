@@ -259,8 +259,7 @@ const app = new Vue({
                 this.playBar.cacheCount = setInterval(function(){
                     vm.mainfilter[0].workTime -= 1
                     // 工作time = 0 的話   
-                    if(vm.mainfilter[0].workTime === 1497){
-                        vm.mainfilter[0].workTime = 0
+                    if(vm.mainfilter[0].workTime === 0){
                         // 停止倒數
                         clearInterval(vm.playBar.cacheCount)
                         // 鬧鐘響 promise!!
@@ -294,8 +293,7 @@ const app = new Vue({
                 this.playBar.cacheCount = setInterval(function(){
                     vm.mainfilter[0].breakTime -= 1
                     // 休息time = 0
-                    if(vm.mainfilter[0].breakTime === 297){
-                        vm.mainfilter[0].breakTime = 0
+                    if(vm.mainfilter[0].breakTime === 0){
                         // 停止倒數
                         clearInterval(vm.playBar.cacheCount);
                         // 任務番茄完成+1 ，今日完成番茄+1
