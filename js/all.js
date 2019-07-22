@@ -81,10 +81,16 @@ const app = new Vue({
             time: 1563262884925
         },
         {
-            ID: '07/11',
+            ID: '07/13',
             tomato: 9,
             day: 'THU',
-            time: 1562830884925
+            time: 1563011118379
+        },
+        {
+            ID: '07/22',
+            tomato: 9,
+            day: 'MON',
+            time: 1563786876044
         },
         ],
         datebtn: 0,
@@ -209,7 +215,6 @@ const app = new Vue({
                 localStorage.removeItem('breakMusic');
             }
         }
-        // this.seleteList();
     },
     methods:{
         addTodo: function(){
@@ -254,18 +259,23 @@ const app = new Vue({
                 this.playBar.cacheCount = setInterval(function(){
                     vm.mainfilter[0].workTime -= 1
                     // 工作time = 0 的話   
-                    if(vm.mainfilter[0].workTime === 0){
+                    if(vm.mainfilter[0].workTime === 1497){
+                        vm.mainfilter[0].workTime = 0
                         // 停止倒數
                         clearInterval(vm.playBar.cacheCount)
-                        // 鬧鐘響
-                        vm.menu = 'ringtone'
-                        vm.ringtoneNav = 'work'
-                        vm.playAudio(vm.workMusic.map(function(item){
-                            return item.seleted
-                        }).indexOf(true))
-                        vm.alert = 'alarm'
-                        // 切換休息模式
-                        vm.tomatoMode = 'rest'
+                        // 鬧鐘響 promise!!
+                        let promise = new Promise(function(resolve, reject){
+                            // 切換休息模式
+                            vm.tomatoMode = 'rest'
+                            resolve()
+                        })
+                        promise.then(function(){
+                            let alarm = document.querySelector('.main .audio');
+                            alarm.play();
+                        })
+                        promise.then(function(){
+                            vm.alert = 'alarm'
+                        })
                         // 播放按鈕彈回
                         vm.playBar.status = ''
                         // 可播放狀態(intervalID = 0)
@@ -284,14 +294,26 @@ const app = new Vue({
                 this.playBar.cacheCount = setInterval(function(){
                     vm.mainfilter[0].breakTime -= 1
                     // 休息time = 0
-                    if(vm.mainfilter[0].breakTime === 0){
+                    if(vm.mainfilter[0].breakTime === 297){
+                        vm.mainfilter[0].breakTime = 0
                         // 停止倒數
                         clearInterval(vm.playBar.cacheCount);
                         // 任務番茄完成+1 ，今日完成番茄+1
                         vm.mainfilter[0].tomatoProgress += 1
                         vm.completedTomatos += 1
-                        // 切換工作模式
-                        vm.tomatoMode = 'work'
+                        // 鬧鐘響
+                        let promise = new Promise(function(resolve, reject){
+                            // 切換工作模式
+                            vm.tomatoMode = 'work'
+                            resolve()
+                        })
+                        promise.then(function(){
+                            let alarm = document.querySelector('.main .audio');
+                            alarm.play();
+                        })
+                        promise.then(function(){
+                            vm.alert = 'alarm'
+                        })
                         // 播放按鈕彈回
                         vm.playBar.status = ''
                         // 可播放狀態(intervalID = 0)
@@ -321,17 +343,6 @@ const app = new Vue({
                         }
 
                         vm.saveData('chart', vm.chart);
-
-                        // 鬧鐘響
-                        vm.menu = 'ringtone'
-                        vm.ringtoneNav = 'break'
-                        let rtMap = vm.breakMusic.map(function(item){
-                            return item.seleted
-                        }).indexOf(true)
-                        console.log(rtMap);
-                        
-                        vm.playAudio(rtMap)
-                        vm.alert = 'alarm'
                         // 番茄全部完成 or 重置下個番茄
                         if(vm.mainfilter[0].tomatoProgress === vm.mainfilter[0].needTomato){
                             vm.mainfilter[0].seleted = false
@@ -412,7 +423,6 @@ const app = new Vue({
             let vm = this
             let musicList = vm.ringtoneNav === 'work'? vm.workMusic : vm.breakMusic
             let audio = vm.ringtoneNav === 'work'? document.querySelectorAll('.work .audio') : document.querySelectorAll('.break .audio')
-            console.log(audio);
             
             if(audio[key].paused){
                 clearInterval(this.cacheMusic)
@@ -447,9 +457,7 @@ const app = new Vue({
             this.saveData(saveName , musicList)
         },
         stopAlarm: function(){
-            let vm = this
-            let musicList = vm.ringtoneNav === 'work'? vm.workMusic : vm.breakMusic
-            vm.playAudio(musicList.map(function(item){return item.seleted}).indexOf(true))
+            document.querySelector('.main .audio').load();
         }
     },
     computed: {
@@ -495,10 +503,24 @@ const app = new Vue({
             let vm = this
             let todayDt = new Date();
             let nowDt = new Date(todayDt - vm.datebtn*24*60*60*1000)
-            let sevenDt = new Date(nowDt - 6*24*60*60*1000)
+            let sevenDt = new Date(nowDt - 6*24*60*60*1000)    
             return vm.chart.filter(function(item){
                 return item.time > sevenDt && item.time <= nowDt
             }).sort(function(a, b){ return a.time - b.time})
+        },
+        weekfilter: function(){
+            let dt = new Date();
+            let nowDt = new Date(dt - this.datebtn*24*60*60*1000)
+            let sevenDt = new Date(nowDt - 6*24*60*60*1000)
+
+            let month = function(item) {if(item < 10){return item = '0'+ String(item)}}
+            let nowM = month(nowDt.getMonth()+1)
+            let sevendayM = month(sevenDt.getMonth()+1)
+
+            let now = nowM +'/'+ nowDt.getDate()
+            let sevenday = sevendayM + '/' + sevenDt.getDate()
+
+            return sevenday +'~'+ now
         },
         musicTimeR: function(){
             return {
@@ -514,5 +536,15 @@ const app = new Vue({
             `rotate(-135deg)`
             }
         },
+        mainAlarm: function(){
+            return this.tomatoMode !== 'work'?
+            this.workMusic.filter(function(item){
+                return item.seleted === true
+            })
+            :
+            this.breakMusic.filter(function(item){
+                return item.seleted === true
+            })
+        }
     },
 })

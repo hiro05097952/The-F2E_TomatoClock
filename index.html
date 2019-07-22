@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="js/vue.js" type=""></script>
+    <title>The F2E - Tomato Clock</title>
+    <script src="js/vue.js"></script>
     <link rel="stylesheet" href="css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -83,9 +83,9 @@
                     <h2>TOMATO OF THIS WEEK</h2>
                     <ul class="week">
                         <li>{{ completedTomatos }}<p>TODAY</p></li>
-                        <li>{{ datefilter.reduce(function(a,b){return a + b.tomato}, 0) }}<p>{{ datefilter[0].ID +'~'+ datefilter[datefilter.length-1].ID }}</p></li>
+                        <li>{{ datefilter.reduce(function(a,b){return a + b.tomato}, 0) }}<p>{{ weekfilter }}</p></li>
                     </ul>
-                    <h2>CHART<p>{{ datefilter[0].ID +'~'+ datefilter[datefilter.length-1].ID }}</p></h2>
+                    <h2>CHART<p>{{ weekfilter }}</p></h2>
                     <div class="chart">
                         <ul class="chartImage">
                             <li v-for="item in datefilter">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="ringtone" v-show="menu === 'ringtone'">
+                <div class="ringtone" v-if="menu === 'ringtone'">
                     <h1>RING TONG</h1>
                     <ul class="ringtoneNav">
                         <li :class="{'active': ringtoneNav === 'work'}" @click.prevent="ringtoneNav='work'"><a href="#" @click.prevent>WORK</a></li>
@@ -183,6 +183,7 @@
                 </ul>
                 <h3>TASK COMPLETE</h3>
                 <p>PODOMORO</p>
+                <audio class="audio" :src="mainAlarm[0].src" type="audio/mpeg" loop></audio>
             </div>
         </div>
 
